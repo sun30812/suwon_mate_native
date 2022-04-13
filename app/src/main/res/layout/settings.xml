@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<ScrollView
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include layout="@layout/custom_list_layout"
+            android:id="@+id/student_setting"
+            />
+        <include layout="@layout/custom_list_layout"
+            android:id="@+id/function_settings"/>
+        <include layout="@layout/custom_list_layout"
+            android:id="@+id/reset_menu"
+            />
+        <include layout="@layout/custom_list_layout"
+            android:id="@+id/version_info"/>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_margin="8.0dp"
+            app:cardCornerRadius="4.0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TableLayout
+                android:layout_margin="8.0dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TableRow>
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/ic_help"
+                        android:contentDescription="Help Icon"/>
+                    <TextView
+                        android:text="문의하기"
+                        android:textSize="25sp"
+                        />
+                </TableRow>
+                <TableRow>
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_mail"
+                        android:contentDescription="@string/help_icon" />
+                    <Button
+                        android:id="@+id/email_button"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/email" />
+                </TableRow>
+
+
+            </TableLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

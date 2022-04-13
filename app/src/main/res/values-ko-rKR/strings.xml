@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">수원 메이트(Native Port)</string>
+    <string name="inquire_subject">개설 강좌 조회</string>
+    <string name="help">도움말</string>
+    <string name="schedule">학사 일정</string>
+    <string name="favorite">즐겨찾는 과목(베타)</string>
+    <string name="noti">공지사항</string>
+    <string name="settings">설정</string>
+    <string name="email">orgsun30812@gmail+suwon_mate.com</string>
+    <string name="help_icon">도움말 아이콘</string>
+</resources>

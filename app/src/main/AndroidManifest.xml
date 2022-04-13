@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sn30.suwonuniv.info.suwonmate_native">
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SuwonMateNativePort">
+        <activity
+            android:name="com.sn30.suwonuniv.info.suwonmate_native.view.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.sn30.suwonuniv.info.suwonmate_native.view.HelpActivity"
+            android:label="@string/help"
+            android:parentActivityName="com.sn30.suwonuniv.info.suwonmate_native.view.MainActivity"
+            />
+        <activity android:name="com.sn30.suwonuniv.info.suwonmate_native.view.ScheduleActivity"
+            android:label="@string/schedule"
+            android:parentActivityName="com.sn30.suwonuniv.info.suwonmate_native.view.MainActivity"/>
+        <activity android:name="com.sn30.suwonuniv.info.suwonmate_native.view.SettingsActivity"
+            android:label="@string/settings"
+            android:parentActivityName="com.sn30.suwonuniv.info.suwonmate_native.view.MainActivity"/>
+        <activity android:name=".view.InfoActivity"
+            android:label="@string/noti"
+            android:parentActivityName=".view.MainActivity"/>
+        <activity android:name=".view.OpenClassActivity"
+            android:label="@string/inquire_subject"
+            android:parentActivityName=".view.MainActivity"/>
+
+    </application>
+
+</manifest>

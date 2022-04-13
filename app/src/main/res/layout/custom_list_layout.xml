@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+android:id="@+id/help_card1"
+android:layout_margin="8.0dp"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+android:layout_width="match_parent"
+android:layout_height="wrap_content">
+<TableLayout
+    android:layout_margin="8.0dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <TableRow>
+        <ImageView
+            android:id="@+id/title_icon"
+            android:layout_gravity="center"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_help"
+            android:contentDescription="Help Icon"/>
+        <TextView
+            android:id="@+id/title"
+            android:text="Title"
+            android:textSize="22sp"
+            />
+
+    </TableRow>
+    <LinearLayout
+        android:id="@+id/contents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    </LinearLayout>
+
+</TableLayout>
+</com.google.android.material.card.MaterialCardView>
