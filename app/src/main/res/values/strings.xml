@@ -1,4 +1,10 @@
 <resources>
+    <string-array name="grades">
+        <item>Grade1</item>
+        <item>Grade2</item>
+        <item>Grade3</item>
+        <item>Grade4</item>
+    </string-array>
     <string name="app_name">Suwon Mate(Native Port)</string>
     <string name="inquire_subject">Inquire Open Subject</string>
     <string name="help">Help</string>

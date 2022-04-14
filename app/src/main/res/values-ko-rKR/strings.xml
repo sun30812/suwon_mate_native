@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="grades">
+        <item>1학년</item>
+        <item>2학년</item>
+        <item>3학년</item>
+        <item>4학년</item>
+    </string-array>
     <string name="app_name">수원 메이트(Native Port)</string>
     <string name="inquire_subject">개설 강좌 조회</string>
     <string name="help">도움말</string>
