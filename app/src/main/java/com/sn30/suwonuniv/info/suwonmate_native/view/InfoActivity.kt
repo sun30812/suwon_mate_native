@@ -3,7 +3,9 @@ package com.sn30.suwonuniv.info.suwonmate_native.view
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
+import android.widget.LinearLayout
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.LinearLayoutCompat
@@ -45,8 +47,9 @@ class InfoActivity : AppCompatActivity() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val mainView = LinearLayoutCompat(this)
-        mainView.orientation = LinearLayoutCompat.VERTICAL
+        val mainView = LinearLayout(this)
+        mainView.orientation = LinearLayout.VERTICAL
+        mainView.gravity = Gravity.CENTER
         setContentView(mainView)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val mainListView = RecyclerView(this)
@@ -66,6 +69,7 @@ class InfoActivity : AppCompatActivity() {
         mainView.addView(mainListView)
         CoroutineScope(Dispatchers.Main).launch {
             getData()
+            mainView.gravity = Gravity.TOP
             mainListView.visibility = View.VISIBLE
             loading.visibility = View.GONE
             adapter.notifyItemInserted(0)
