@@ -14,4 +14,8 @@
     <string name="settings">Settings</string>
     <string name="email">orgsun30812@gmail+suwon_mate.com</string>
     <string name="help_icon">Help Icon</string>
+    <string name="major">Major</string>
+    <string name="depart">Department</string>
+    <string name="student_setting_desc">Select your department, major and grade for default value in open class menu</string>
+    <string name="student_info">Student Info</string>
 </resources>

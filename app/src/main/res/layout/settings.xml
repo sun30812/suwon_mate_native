@@ -13,6 +13,46 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <com.google.android.material.card.MaterialCardView
+            android:layout_margin="8.0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TableLayout
+                android:layout_margin="8.0dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <include layout="@layout/icon_title" android:id="@+id/student_setting_title"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/student_setting_desc"/>
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:id="@+id/student_loading"
+                    android:layout_gravity="center"
+                    android:indeterminate="true"/>
+                <TableRow android:gravity="center" android:id="@+id/department_bar" android:visibility="gone">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/depart"/>
+                    <Spinner
+                        android:id="@+id/department_setting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </TableRow>
+                <TableRow android:gravity="center" android:id="@+id/major_bar" android:visibility="gone">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/major"/>
+                    <Spinner
+                        android:id="@+id/major_setting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </TableRow>
+
+            </TableLayout>
+        </com.google.android.material.card.MaterialCardView>
         <include layout="@layout/custom_list_layout"
             android:id="@+id/student_setting"
             />
@@ -60,6 +100,7 @@
 
             </TableLayout>
         </com.google.android.material.card.MaterialCardView>
+
     </LinearLayout>
 
 </ScrollView>

@@ -16,6 +16,7 @@ import com.sn30.suwonuniv.info.suwonmate_native.R
 import com.sn30.suwonuniv.info.suwonmate_native.adapter.OpenClassListViewAdapter
 import com.sn30.suwonuniv.info.suwonmate_native.databinding.OpenClassBinding
 import com.sn30.suwonuniv.info.suwonmate_native.models.CardItem
+import com.sn30.suwonuniv.info.suwonmate_native.models.ClassCardItem
 import com.sn30.suwonuniv.info.suwonmate_native.models.InfoCardItem
 import com.sn30.suwonuniv.info.suwonmate_native.models.SimpleCardItem
 
@@ -38,7 +39,7 @@ class OpenClassActivity : AppCompatActivity() {
         binding.grades.adapter = gradeListAdapter
         var department = ""
         var major = ""
-        val subjectList: ArrayList<SimpleCardItem> = arrayListOf()
+        val subjectList: ArrayList<DataSnapshot> = arrayListOf()
         val adapter = OpenClassListViewAdapter(subjectList)
         binding.classListView.adapter = adapter
         binding.classListView.layoutManager = LinearLayoutManager(this)
@@ -77,10 +78,7 @@ class OpenClassActivity : AppCompatActivity() {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         snapshot.child(department).children.forEach {
                             subjectList.add(
-                                SimpleCardItem(
-                                    it.child("subjtNm").value.toString(),
-                                    it.child("ltrPrfsNm").value.toString()
-                                )
+                                it
                             )
                             adapter.notifyDataSetChanged()
                         }

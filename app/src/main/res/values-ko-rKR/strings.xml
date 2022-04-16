@@ -15,4 +15,8 @@
     <string name="settings">설정</string>
     <string name="email">orgsun30812@gmail+suwon_mate.com</string>
     <string name="help_icon">도움말 아이콘</string>
+    <string name="major">전공</string>
+    <string name="depart">학부</string>
+    <string name="student_setting_desc">개설 강좌 메뉴에서 기본으로 보여질 학부 및 학년을 선택합니다.</string>
+    <string name="student_info">학생 정보</string>
 </resources>

@@ -10,23 +10,9 @@ android:layout_width="match_parent"
 android:layout_height="wrap_content">
 <TableLayout
     android:layout_margin="8.0dp"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    <TableRow>
-        <ImageView
-            android:id="@+id/title_icon"
-            android:layout_gravity="center"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:src="@drawable/ic_help"
-            android:contentDescription="Help Icon"/>
-        <TextView
-            android:id="@+id/title"
-            android:text="Title"
-            android:textSize="22sp"
-            />
-
-    </TableRow>
+    <include layout="@layout/icon_title" android:id="@+id/title_bar"/>
     <LinearLayout
         android:id="@+id/contents"
         android:layout_width="match_parent"
