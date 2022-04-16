@@ -1,5 +1,6 @@
 package com.sn30.suwonuniv.info.suwonmate_native.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -15,10 +16,6 @@ import com.google.firebase.ktx.Firebase
 import com.sn30.suwonuniv.info.suwonmate_native.R
 import com.sn30.suwonuniv.info.suwonmate_native.adapter.OpenClassListViewAdapter
 import com.sn30.suwonuniv.info.suwonmate_native.databinding.OpenClassBinding
-import com.sn30.suwonuniv.info.suwonmate_native.models.CardItem
-import com.sn30.suwonuniv.info.suwonmate_native.models.ClassCardItem
-import com.sn30.suwonuniv.info.suwonmate_native.models.InfoCardItem
-import com.sn30.suwonuniv.info.suwonmate_native.models.SimpleCardItem
 
 class OpenClassActivity : AppCompatActivity() {
     private val TAG = "FirebaseTest"
@@ -41,6 +38,12 @@ class OpenClassActivity : AppCompatActivity() {
         var major = ""
         val subjectList: ArrayList<DataSnapshot> = arrayListOf()
         val adapter = OpenClassListViewAdapter(subjectList)
+        adapter.setOnItemClickListener(object : OpenClassListViewAdapter.OnItemClickListener {
+            override fun onItemClicked(v: View) {
+                startActivity(Intent(this@OpenClassActivity, OpenClassDetailActivity::class.java))
+            }
+
+        })
         binding.classListView.adapter = adapter
         binding.classListView.layoutManager = LinearLayoutManager(this)
         val database = Firebase.database

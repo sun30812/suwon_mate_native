@@ -19,4 +19,27 @@
     <string name="depart">학부</string>
     <string name="student_setting_desc">개설 강좌 메뉴에서 기본으로 보여질 학부 및 학년을 선택합니다.</string>
     <string name="student_info">학생 정보</string>
+    <string name="desc">설명</string>
+    <string name="target_grade">"대상 학년: "</string>
+    <string name="target_dept">"대상 학부: "</string>
+    <string name="target_major">"대상 전공: "</string>
+    <string name="subject_code">"과목 코드: "</string>
+    <string name="open_year">"개설년도: "</string>
+    <string name="kind_subject">"과목 종류: "</string>
+    <string name="point">"학점: "</string>
+    <string name="gender">"성별: "</string>
+    <string name="name">"성함: "</string>
+    <string name="work_grade">"직책: "</string>
+    <string name="copy">복사</string>
+    <string name="target_student">수업 대상자</string>
+    <string name="subject_info">과목 정보</string>
+    <string name="professor_info">강의자 정보</string>
+    <string name="extra_info">추가 정보</string>
+    <string name="relate_info_study">수업 관련 사항</string>
+    <string name="search">검색</string>
+    <string name="location">"수업 장소 및 요일: "</string>
+    <string name="ge_class_region">"교양 영역: "</string>
+    <string name="language">"수업 언어: "</string>
+    <string name="promise">"계약 정보: "</string>
+    <string name="method">"수업 방식: "</string>
 </resources>

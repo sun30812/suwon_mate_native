@@ -18,4 +18,27 @@
     <string name="depart">Department</string>
     <string name="student_setting_desc">Select your department, major and grade for default value in open class menu</string>
     <string name="student_info">Student Info</string>
+    <string name="desc">Description</string>
+    <string name="target_grade">"Target Grade: "</string>
+    <string name="target_dept">Target Department:</string>
+    <string name="target_major">Target Major:</string>
+    <string name="subject_code">Subject Code:</string>
+    <string name="open_year">Open Year:</string>
+    <string name="kind_subject">"Kind Of Subject: "</string>
+    <string name="point">Point:</string>
+    <string name="gender">Gender:</string>
+    <string name="name">Name:</string>
+    <string name="work_grade">"Work Grade: "</string>
+    <string name="copy">Copy</string>
+    <string name="target_student">Target Student</string>
+    <string name="subject_info">Subject Info</string>
+    <string name="professor_info">Professor info</string>
+    <string name="extra_info">Extra Info</string>
+    <string name="relate_info_study">Class Related Info</string>
+    <string name="search">Search</string>
+    <string name="location">"Classroom Location and Time: "</string>
+    <string name="ge_class_region">"GE Class Redion: "</string>
+    <string name="language">"Class Language: "</string>
+    <string name="promise">Contract Information:</string>
+    <string name="method">"Class method: "</string>
 </resources>

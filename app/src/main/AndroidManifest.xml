@@ -35,6 +35,9 @@
         <activity android:name=".view.OpenClassActivity"
             android:label="@string/inquire_subject"
             android:parentActivityName=".view.MainActivity"/>
+        <activity android:name=".view.OpenClassDetailActivity"
+            android:label="@string/subject_info"
+            android:parentActivityName=".view.OpenClassActivity"/>
 
     </application>
 

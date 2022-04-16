@@ -8,24 +8,20 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sn30.suwonuniv.info.suwonmate_native.adapter.InfoListViewAdapter
 import com.sn30.suwonuniv.info.suwonmate_native.models.InfoCardItem
-import com.sn30.suwonuniv.info.suwonmate_native.models.SimpleCardItem
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Element
-import java.net.URI
 
 class InfoActivity : AppCompatActivity() {
     private val list = arrayListOf<InfoCardItem>()
     private suspend fun getData():Boolean = withContext(Dispatchers.IO) {
-        var complete = false
         val connection = Jsoup.connect("https://www.suwon.ac.kr/index.html?menuno=674")
         runCatching {
             val doc = connection.get()
@@ -39,11 +35,9 @@ class InfoActivity : AppCompatActivity() {
                         .split(',')[2]
                         .split(')')[0])
                 list.add(item)
-                if (list.size > 10)
-                    complete = true
             }
         }
-        complete
+        true
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
