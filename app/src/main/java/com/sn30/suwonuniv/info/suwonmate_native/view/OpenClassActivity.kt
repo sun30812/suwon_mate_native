@@ -173,9 +173,13 @@ class OpenClassActivity : AppCompatActivity() {
                 mySubjectRef.child(department).orderByChild("trgtGrdeCd").equalTo(grade + 1.toDouble()).addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         snapshot.children.forEach {
-                            subjectList.add(
-                                it
-                            )
+                            if (major != "전체") {
+                                if (it.child("estbMjorNm").value.toString() == major) {
+                                    subjectList.add(it)
+                                }
+                            } else {
+                                subjectList.add(it)
+                            }
                             adapter.notifyDataSetChanged()
                         }
                             binding.dataLoading.visibility = View.GONE
