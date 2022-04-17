@@ -41,4 +41,5 @@
     <string name="language">Class Language: %1$s</string>
     <string name="promise">Contract Information: %1$s</string>
     <string name="method">Class method: %1$s</string>
+    <string name="subject_code_copied">Subject code was copied</string>
 </resources>

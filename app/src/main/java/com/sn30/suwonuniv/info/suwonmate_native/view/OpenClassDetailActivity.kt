@@ -1,7 +1,10 @@
 package com.sn30.suwonuniv.info.suwonmate_native.view
 
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
 import com.sn30.suwonuniv.info.suwonmate_native.R
 import com.sn30.suwonuniv.info.suwonmate_native.databinding.OpenClassDetailBinding
 import com.sn30.suwonuniv.info.suwonmate_native.models.ClassDetailInfo
@@ -31,6 +34,11 @@ class OpenClassDetailActivity : AppCompatActivity() {
         binding.gender.text = getString(R.string.gender, data.gender)
         binding.name.text = getString(R.string.name, data.name)
         binding.workGrade.text = getString(R.string.open_year, data.openYear)
+        binding.copy.setOnClickListener {
+            val clipboardManager = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+            clipboardManager.setPrimaryClip(ClipData.newPlainText("Subject Code",data.subjectCode))
+            Snackbar.make(it, R.string.subject_code_copied, Snackbar.LENGTH_SHORT).show()
+        }
 
         binding.classInfoBar.titleIcon.setImageResource(R.drawable.ic_school)
         binding.classInfoBar.title.setText(R.string.relate_info_study)

@@ -65,6 +65,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/subject_code" />
                         <ImageButton
+                            android:tooltipText="@string/copy"
                             android:id="@+id/copy"
                             android:minHeight="48dp"
                             android:minWidth="48dp"
@@ -125,6 +126,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/name" />
                         <ImageButton
+                            android:tooltipText="@string/search"
                             android:id="@+id/search"
                             android:minHeight="48dp"
                             android:minWidth="48dp"
