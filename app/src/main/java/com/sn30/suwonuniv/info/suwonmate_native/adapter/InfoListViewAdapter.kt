@@ -1,16 +1,12 @@
 package com.sn30.suwonuniv.info.suwonmate_native.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.sn30.suwonuniv.info.suwonmate_native.R
 import com.sn30.suwonuniv.info.suwonmate_native.models.InfoCardItem
-import com.sn30.suwonuniv.info.suwonmate_native.models.SimpleCardItem
-import kotlin.coroutines.coroutineContext
 
 class InfoListViewAdapter(private val dataList: List<InfoCardItem>): RecyclerView.Adapter<InfoListViewAdapter.ViewHolder>() {
     private var mListener: OnItemClickListener? = null

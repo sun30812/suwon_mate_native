@@ -16,6 +16,7 @@ import com.google.firebase.ktx.Firebase
 import com.sn30.suwonuniv.info.suwonmate_native.R
 import com.sn30.suwonuniv.info.suwonmate_native.adapter.OpenClassListViewAdapter
 import com.sn30.suwonuniv.info.suwonmate_native.databinding.OpenClassBinding
+import com.sn30.suwonuniv.info.suwonmate_native.models.ClassDetailInfo
 
 class OpenClassActivity : AppCompatActivity() {
     private val TAG = "FirebaseTest"
@@ -39,8 +40,11 @@ class OpenClassActivity : AppCompatActivity() {
         val subjectList: ArrayList<DataSnapshot> = arrayListOf()
         val adapter = OpenClassListViewAdapter(subjectList)
         adapter.setOnItemClickListener(object : OpenClassListViewAdapter.OnItemClickListener {
-            override fun onItemClicked(v: View) {
-                startActivity(Intent(this@OpenClassActivity, OpenClassDetailActivity::class.java))
+            override fun onItemClicked(v: View, data: ClassDetailInfo) {
+                val intent = Intent(this@OpenClassActivity, OpenClassDetailActivity::class.java)
+                Log.d(TAG, "onItemClicked: $data")
+                intent.putExtra("data", data)
+                startActivity(intent)
             }
 
         })
