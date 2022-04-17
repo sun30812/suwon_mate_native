@@ -50,6 +50,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 </TableRow>
+                <TableRow android:gravity="center" android:id="@+id/grade_bar" android:visibility="gone">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/major"/>
+                    <Spinner
+                        android:id="@+id/grade_setting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </TableRow>
 
             </TableLayout>
         </com.google.android.material.card.MaterialCardView>

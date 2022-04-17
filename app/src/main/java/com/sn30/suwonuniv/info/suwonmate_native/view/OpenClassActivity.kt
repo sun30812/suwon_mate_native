@@ -17,14 +17,17 @@ import com.sn30.suwonuniv.info.suwonmate_native.R
 import com.sn30.suwonuniv.info.suwonmate_native.adapter.OpenClassListViewAdapter
 import com.sn30.suwonuniv.info.suwonmate_native.databinding.OpenClassBinding
 import com.sn30.suwonuniv.info.suwonmate_native.models.ClassDetailInfo
+import com.sn30.suwonuniv.info.suwonmate_native.models.SettingStore
 
 class OpenClassActivity : AppCompatActivity() {
     private val TAG = "FirebaseTest"
     private lateinit var binding: OpenClassBinding
     private lateinit var majorDataSnapshot: DataSnapshot
+    private lateinit var pref: SettingStore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        pref = SettingStore(this)
         binding = OpenClassBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -35,8 +38,9 @@ class OpenClassActivity : AppCompatActivity() {
         binding.departments.adapter = departmentsListAdapter
         binding.majors.adapter = majorListAdapter
         binding.grades.adapter = gradeListAdapter
-        var department = ""
-        var major = ""
+        binding.grades.setSelection(pref.getInt("grade", 0))
+        var department = pref.getString("department", "컴퓨터학부")
+        var major = pref.getString("major", "컴퓨터SW")
         val subjectList: ArrayList<DataSnapshot> = arrayListOf()
         val adapter = OpenClassListViewAdapter(subjectList)
         adapter.setOnItemClickListener(object : OpenClassListViewAdapter.OnItemClickListener {
@@ -58,6 +62,9 @@ class OpenClassActivity : AppCompatActivity() {
                 majorDataSnapshot = snapshot
                 majorDataSnapshot.children.forEach {
                     departmentsListAdapter.add(it.key.toString())
+                    if (department == it.key.toString()) {
+                        binding.departments.setSelection(departmentsListAdapter.count - 1)
+                    }
                 }
                 binding.spinnerGroup.visibility = View.VISIBLE
                 binding.progressBar.visibility = View.GONE
@@ -80,6 +87,9 @@ class OpenClassActivity : AppCompatActivity() {
                 subjectList.clear()
                 majorDataSnapshot.child(binding.departments.selectedItem.toString()).children.forEach { dat ->
                     majorListAdapter.add(dat.value.toString())
+                    if (major == dat.value.toString()) {
+                        binding.majors.setSelection(majorListAdapter.count - 1)
+                    }
                 }
                 mySubjectRef.addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
