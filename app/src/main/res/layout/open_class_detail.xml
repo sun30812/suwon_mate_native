@@ -24,18 +24,21 @@
 
                     <TextView
                         android:id="@+id/taget_grade"
+                        android:textSize="16sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/target_grade" />
 
                     <TextView
                         android:id="@+id/taget_depart"
+                        android:textSize="16sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/target_dept" />
 
                     <TextView
                         android:id="@+id/taget_major"
+                        android:textSize="16sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/target_major" />
@@ -60,6 +63,7 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             android:id="@+id/subject_code"
+                            android:textSize="16sp"
                             android:gravity="center_vertical"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -80,18 +84,21 @@
 
                     <TextView
                         android:id="@+id/open_year"
+                        android:textSize="16sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/open_year" />
 
                     <TextView
                         android:id="@+id/subject_kind"
+                        android:textSize="16sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/kind_subject" />
 
                     <TextView
                         android:id="@+id/point"
+                        android:textSize="16sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/point" />
@@ -112,6 +119,7 @@
 
                     <TextView
                         android:id="@+id/gender"
+                        android:textSize="16sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/gender" />
@@ -122,6 +130,7 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             android:id="@+id/name"
+                            android:textSize="16sp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/name" />
@@ -142,6 +151,7 @@
 
                     <TextView
                         android:id="@+id/work_grade"
+                        android:textSize="16sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/work_grade" />
@@ -162,17 +172,20 @@
 
                     <TextView
                         android:id="@+id/working_day"
+                        android:textSize="16sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/location" />
 
                     <TextView
                         android:id="@+id/region"
+                        android:textSize="16sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/ge_class_region" />
                     <TextView
                         android:id="@+id/language"
+                        android:textSize="16sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/language" />
@@ -193,12 +206,14 @@
 
                     <TextView
                         android:id="@+id/promise"
+                        android:textSize="16sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/promise" />
 
                     <TextView
                         android:id="@+id/study_way"
+                        android:textSize="16sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/method" />

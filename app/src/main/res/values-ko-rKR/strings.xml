@@ -46,4 +46,7 @@
     <string name="version_desc">앱 버전: %1$s\nDB 버전: %2$s</string>
     <string name="unknown">알 수 없음</string>
     <string name="db_get_err">서버에 문제가 발생하였습니다.</string>
+    <string name="grade">기본 학년:</string>
+    <string name="title">제목</string>
+    <string name="get_help">문의하기</string>
 </resources>

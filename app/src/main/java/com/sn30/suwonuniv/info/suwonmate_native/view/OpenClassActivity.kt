@@ -85,6 +85,8 @@ class OpenClassActivity : AppCompatActivity() {
                 binding.dataLoading.visibility = View.VISIBLE
                 department = binding.departments.selectedItem.toString()
                 majorListAdapter.clear()
+                majorListAdapter.add("전체")
+                binding.majors.setSelection(0)
                 subjectList.clear()
                 majorDataSnapshot.child(binding.departments.selectedItem.toString()).children.forEach { dat ->
                     majorListAdapter.add(dat.value.toString())
@@ -92,21 +94,66 @@ class OpenClassActivity : AppCompatActivity() {
                         binding.majors.setSelection(majorListAdapter.count - 1)
                     }
                 }
-                mySubjectRef.child(department).orderByChild("trgtGrdeCd").equalTo(grade + 1.toDouble()).addValueEventListener(object : ValueEventListener {
-                    override fun onDataChange(snapshot: DataSnapshot) {
-                        snapshot.children.forEach {
-                            subjectList.add(
-                                it
-                            )
-                            adapter.notifyDataSetChanged()
-                        }
-                        binding.dataLoading.visibility = View.GONE
-                    }
+                mySubjectRef.child(department).orderByChild("trgtGrdeCd")
+                    .equalTo(grade + 1.toDouble())
+                    .addValueEventListener(object : ValueEventListener {
 
-                    override fun onCancelled(error: DatabaseError) {
-                        Log.w(TAG, "Can't access because: $error")
-                    }
-                })
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            snapshot.children.forEach {
+                                if (major != "전체") {
+                                    if (it.child("estbMjorNm").value.toString() == major) {
+                                        subjectList.add(it)
+                                    }
+                                } else {
+                                    subjectList.add(it)
+                                }
+                                adapter.notifyDataSetChanged()
+                            }
+                            binding.dataLoading.visibility = View.GONE
+                        }
+
+                        override fun onCancelled(error: DatabaseError) {
+                            Log.w(TAG, "Can't access because: $error")
+                        }
+                    })
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
+        }
+        binding.majors.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                p0: AdapterView<*>?,
+                p1: View?,
+                p2: Int,
+                p3: Long
+            ) {
+                binding.dataLoading.visibility = View.VISIBLE
+                major = binding.majors.selectedItem.toString()
+                subjectList.clear()
+                mySubjectRef.child(department).orderByChild("trgtGrdeCd")
+                    .equalTo(grade + 1.toDouble())
+                    .addValueEventListener(object : ValueEventListener {
+
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            snapshot.children.forEach {
+                                if (major != "전체") {
+                                    if (it.child("estbMjorNm").value.toString() == major) {
+                                        subjectList.add(it)
+                                    }
+                                } else {
+                                    subjectList.add(it)
+                                }
+                                adapter.notifyDataSetChanged()
+                            }
+                            binding.dataLoading.visibility = View.GONE
+                        }
+
+                        override fun onCancelled(error: DatabaseError) {
+                            Log.w(TAG, "Can't access because: $error")
+                        }
+                    })
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {

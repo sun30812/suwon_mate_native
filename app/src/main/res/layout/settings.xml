@@ -21,7 +21,9 @@
                 android:layout_margin="8.0dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+                <TableRow>
                 <include layout="@layout/icon_title" android:id="@+id/student_setting_title"/>
+                </TableRow>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -54,7 +56,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/major"/>
+                        android:text="@string/grade"/>
                     <Spinner
                         android:id="@+id/grade_setting"
                         android:layout_width="wrap_content"
@@ -63,9 +65,7 @@
 
             </TableLayout>
         </com.google.android.material.card.MaterialCardView>
-        <include layout="@layout/custom_list_layout"
-            android:id="@+id/student_setting"
-            />
+
         <include layout="@layout/custom_list_layout"
             android:id="@+id/function_settings"/>
         <include layout="@layout/custom_list_layout"
@@ -88,9 +88,9 @@
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:src="@drawable/ic_help"
-                        android:contentDescription="Help Icon"/>
+                        android:contentDescription="@string/help_icon"/>
                     <TextView
-                        android:text="문의하기"
+                        android:text="@string/get_help"
                         android:textSize="25sp"
                         />
                 </TableRow>

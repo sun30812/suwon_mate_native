@@ -45,4 +45,7 @@
     <string name="version_desc">App Version: %1$s\nDB Version: %2$s</string>
     <string name="unknown">Unknown</string>
     <string name="db_get_err">Server Error Detected</string>
+    <string name="grade">"Default grade: "</string>
+    <string name="title">Title</string>
+    <string name="get_help">Get Help</string>
 </resources>
