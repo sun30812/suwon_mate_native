@@ -41,6 +41,7 @@ class OpenClassActivity : AppCompatActivity() {
         binding.grades.setSelection(pref.getInt("grade", 0))
         var department = pref.getString("department", "컴퓨터학부")
         var major = pref.getString("major", "컴퓨터SW")
+        var grade = pref.getInt("grade", 0)
         val subjectList: ArrayList<DataSnapshot> = arrayListOf()
         val adapter = OpenClassListViewAdapter(subjectList)
         adapter.setOnItemClickListener(object : OpenClassListViewAdapter.OnItemClickListener {
@@ -67,7 +68,6 @@ class OpenClassActivity : AppCompatActivity() {
                     }
                 }
                 binding.spinnerGroup.visibility = View.VISIBLE
-                binding.progressBar.visibility = View.GONE
 
             }
 
@@ -82,6 +82,7 @@ class OpenClassActivity : AppCompatActivity() {
                 p2: Int,
                 p3: Long
             ) {
+                binding.dataLoading.visibility = View.VISIBLE
                 department = binding.departments.selectedItem.toString()
                 majorListAdapter.clear()
                 subjectList.clear()
@@ -91,14 +92,46 @@ class OpenClassActivity : AppCompatActivity() {
                         binding.majors.setSelection(majorListAdapter.count - 1)
                     }
                 }
-                mySubjectRef.addValueEventListener(object : ValueEventListener {
+                mySubjectRef.child(department).orderByChild("trgtGrdeCd").equalTo(grade + 1.toDouble()).addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
-                        snapshot.child(department).children.forEach {
+                        snapshot.children.forEach {
                             subjectList.add(
                                 it
                             )
                             adapter.notifyDataSetChanged()
                         }
+                        binding.dataLoading.visibility = View.GONE
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        Log.w(TAG, "Can't access because: $error")
+                    }
+                })
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
+        }
+        binding.grades.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                p0: AdapterView<*>?,
+                p1: View?,
+                p2: Int,
+                p3: Long
+            ) {
+                binding.dataLoading.visibility = View.VISIBLE
+                grade = p2
+                subjectList.clear()
+                mySubjectRef.child(department).orderByChild("trgtGrdeCd").equalTo(grade + 1.toDouble()).addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        snapshot.children.forEach {
+                            subjectList.add(
+                                it
+                            )
+                            adapter.notifyDataSetChanged()
+                        }
+                            binding.dataLoading.visibility = View.GONE
                     }
 
                     override fun onCancelled(error: DatabaseError) {
