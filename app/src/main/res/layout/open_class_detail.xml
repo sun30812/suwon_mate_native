@@ -220,5 +220,16 @@
 
                 </TableLayout>
             </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:layout_width="wrap_content"
+                app:backgroundTint="@color/suwon_navy_light"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_margin="16dp"
+                android:contentDescription="@string/favorite"
+                android:text="@string/favorite_add"
+                app:icon="@drawable/ic_star" />
         </LinearLayout>
+
     </ScrollView>

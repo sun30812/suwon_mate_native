@@ -48,4 +48,10 @@
     <string name="grade">"Default grade: "</string>
     <string name="title">Title</string>
     <string name="get_help">Get Help</string>
+    <string name="data_save_mode">Data save mode</string>
+    <string name="data_save_mode_desc">For save your data, somw function will be disabled.</string>
+    <string name="live_search">Type to search</string>
+    <string name="function_settings">Function Settings</string>
+    <string name="function_settings_desc">Data save mode: For save your internet data, some function will be disabled.</string>
+    <string name="favorite_add">Add to Favorites</string>
 </resources>

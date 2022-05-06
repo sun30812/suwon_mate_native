@@ -2,6 +2,7 @@ package com.sn30.suwonuniv.info.suwonmate_native.view
 
 import android.content.ClipData
 import android.content.ClipboardManager
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
@@ -28,17 +29,23 @@ class OpenClassDetailActivity : AppCompatActivity() {
         binding.openYear.text = getString(R.string.open_year, data.openYear)
         binding.subjectKind.text = getString(R.string.kind_subject, data.subjectKind)
         binding.point.text = getString(R.string.point, data.point)
+        binding.copy.setOnClickListener {
+            val clipboardManager = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+            clipboardManager.setPrimaryClip(ClipData.newPlainText("Subject Code",data.subjectCode))
+            Snackbar.make(it, R.string.subject_code_copied, Snackbar.LENGTH_SHORT).show()
+        }
 
         binding.professorInfoBar.titleIcon.setImageResource(R.drawable.ic_outline_work_outline_24)
         binding.professorInfoBar.title.setText(R.string.professor_info)
         binding.gender.text = getString(R.string.gender, data.gender)
         binding.name.text = getString(R.string.name, data.name)
         binding.workGrade.text = getString(R.string.open_year, data.openYear)
-        binding.copy.setOnClickListener {
-            val clipboardManager = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
-            clipboardManager.setPrimaryClip(ClipData.newPlainText("Subject Code",data.subjectCode))
-            Snackbar.make(it, R.string.subject_code_copied, Snackbar.LENGTH_SHORT).show()
+        binding.search.setOnClickListener {
+            val intent = Intent(this, AssociateProfessorActivity::class.java)
+            intent.putExtra("data", data)
+            startActivity(intent)
         }
+
 
         binding.classInfoBar.titleIcon.setImageResource(R.drawable.ic_school)
         binding.classInfoBar.title.setText(R.string.relate_info_study)
