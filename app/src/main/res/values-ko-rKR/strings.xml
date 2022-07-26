@@ -55,4 +55,6 @@
     <string name="function_settings">기능 설정</string>
     <string name="function_settings_desc">데이터 절약 모드: 데이터를 절약하기 위해 일부 기능을 제한합니다.\n입력하여 바로 검색: 검색 시 성능 저하 문제가 있는 경우 검색을 시작할 글자 수를 지정하여 성능을 개선할 수 있습니다.</string>
     <string name="favorite_add">즐겨찾기에 추가</string>
+    <string name="today_schedule">현재 일정: %1$s</string>
+    <string name="none">없음</string>
 </resources>

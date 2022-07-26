@@ -54,4 +54,6 @@
     <string name="function_settings">Function Settings</string>
     <string name="function_settings_desc">Data save mode: For save your internet data, some function will be disabled.</string>
     <string name="favorite_add">Add to Favorites</string>
+    <string name="today_schedule">Ongoing Schedule: %1$s</string>
+    <string name="none">None</string>
 </resources>
