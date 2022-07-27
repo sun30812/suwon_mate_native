@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.DataSnapshot
@@ -20,7 +21,6 @@ import com.sn30.suwonuniv.info.suwonmate_native.models.ClassDetailInfo
 import com.sn30.suwonuniv.info.suwonmate_native.models.SettingStore
 
 class OpenClassActivity : AppCompatActivity() {
-    private val TAG = "FirebaseTest"
     private lateinit var binding: OpenClassBinding
     private lateinit var majorDataSnapshot: DataSnapshot
     private lateinit var pref: SettingStore
@@ -47,7 +47,6 @@ class OpenClassActivity : AppCompatActivity() {
         adapter.setOnItemClickListener(object : OpenClassListViewAdapter.OnItemClickListener {
             override fun onItemClicked(v: View, data: ClassDetailInfo) {
                 val intent = Intent(this@OpenClassActivity, OpenClassDetailActivity::class.java)
-                Log.d(TAG, "onItemClicked: $data")
                 intent.putExtra("data", data)
                 startActivity(intent)
             }
@@ -55,9 +54,11 @@ class OpenClassActivity : AppCompatActivity() {
         })
         binding.classListView.adapter = adapter
         binding.classListView.layoutManager = LinearLayoutManager(this)
+        // Firebase 연동
         val database = Firebase.database
         val myRef = database.getReference("/departments")
         val mySubjectRef = database.getReference("/estbLectDtaiList")
+        // DB 이벤트에 따른 동작
         myRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 majorDataSnapshot = snapshot
@@ -72,9 +73,11 @@ class OpenClassActivity : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Log.w(TAG, "onCancelled: ", error.toException())
+                Toast.makeText(applicationContext, R.string.db_get_err, Toast.LENGTH_SHORT).show()
             }
+
         })
+        // 학부 설정을 변경할 때
         binding.departments.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 p0: AdapterView<*>?,
@@ -107,13 +110,13 @@ class OpenClassActivity : AppCompatActivity() {
                                 } else {
                                     subjectList.add(it)
                                 }
-                                adapter.notifyDataSetChanged()
+                                adapter.notifyItemRangeInserted(0,subjectList.count())
                             }
                             binding.dataLoading.visibility = View.GONE
                         }
 
                         override fun onCancelled(error: DatabaseError) {
-                            Log.w(TAG, "Can't access because: $error")
+                            Toast.makeText(applicationContext, R.string.db_get_err, Toast.LENGTH_SHORT).show()
                         }
                     })
             }
@@ -145,13 +148,13 @@ class OpenClassActivity : AppCompatActivity() {
                                 } else {
                                     subjectList.add(it)
                                 }
-                                adapter.notifyDataSetChanged()
+                                adapter.notifyItemRangeInserted(0,subjectList.count())
                             }
                             binding.dataLoading.visibility = View.GONE
                         }
 
                         override fun onCancelled(error: DatabaseError) {
-                            Log.w(TAG, "Can't access because: $error")
+                            Toast.makeText(applicationContext, R.string.db_get_err, Toast.LENGTH_SHORT).show()
                         }
                     })
             }
@@ -180,13 +183,13 @@ class OpenClassActivity : AppCompatActivity() {
                             } else {
                                 subjectList.add(it)
                             }
-                            adapter.notifyDataSetChanged()
+                            adapter.notifyItemRangeInserted(0,subjectList.count())
                         }
                             binding.dataLoading.visibility = View.GONE
                     }
 
                     override fun onCancelled(error: DatabaseError) {
-                        Log.w(TAG, "Can't access because: $error")
+                        Toast.makeText(applicationContext, R.string.db_get_err, Toast.LENGTH_SHORT).show()
                     }
                 })
             }
